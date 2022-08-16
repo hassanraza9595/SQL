@@ -110,4 +110,9 @@ select age from bank_details where age > 30
 select age from bank_details where age >= 60 
 
 /* show me record where age is 60 and job is retired */
-select age, job from bank_details where age = 60 and job = 'retired'
+select * from bank_details where age = 60 and job = 'retired'
+
+/* show me record where education = 'unknown' or martial = 'single' */
+select * from bank_details where education = 'unknown' or marital = 'single'
+
+
