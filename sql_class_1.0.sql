@@ -113,6 +113,14 @@ select age from bank_details where age >= 60
 select * from bank_details where age = 60 and job = 'retired'
 
 /* show me record where education = 'unknown' or martial = 'single' */
-select * from bank_details where education = 'unknown' or marital = 'single'
+select * from bank_details where (education = 'unknown' or marital = 'single') and balance < 500
 
 
+/* how many types of jobs in records */
+select distinct job from bank_details
+
+/* arrange data in age order ascending order */
+select * from bank_details order by age asc
+
+/* arrange data in age order decending  order */
+select * from bank_details order by age desc
