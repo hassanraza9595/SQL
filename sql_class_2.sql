@@ -40,3 +40,9 @@ Begin
 End &&    
 
 call edu_job('primary', 'admin.')
+
+/* create view of table */
+
+create view bank_details_subset as select age, job, marital, education, balance from bank_details;bank_details_subset
+/* execute the records of view */
+select * from bank_details_subset;
