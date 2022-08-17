@@ -29,7 +29,7 @@ select * from bank_details order by balance desc limit 1
  select * from bank_details where job = 'unknown' and age < 45 
  
  /* try to find out a record where education is primarty and person is jobless*/
-select * from bank_details where education = 'primary'
+select * from bank_details where education = 'primary' and job = 'unknown'
 
 
 
@@ -40,6 +40,6 @@ select * from bank_details where balance < 0
 try to find our a record who is not having house at all along with there balance 
 */
 
-select * from bank_details where housing = 'no' and balance < 0
+select balance, housing from bank_details where housing = 'no'
 
 
