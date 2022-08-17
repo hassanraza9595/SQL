@@ -29,3 +29,14 @@ End &&
 
 call avg_bal_jobrole('admin.')
 call avg_bal_jobrole('management')
+
+
+/* create a procedure which takes multiple arguments */
+
+Delimiter && 
+create procedure edu_job(IN v1 varchar(30), IN v2 varchar(30))
+Begin
+	select * from bank_details where education = v1 and job = v2;
+End &&    
+
+call edu_job('primary', 'admin.')
