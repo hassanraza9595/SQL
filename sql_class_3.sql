@@ -97,3 +97,16 @@ test_salary int check(test_salary > 10000))
 insert into test5 (test_name, test_mailid, test_address, test_salary) values('hassan', 'hassan@gmail.com', 'karachi', 18000)
  
  select * from test5;
+ 
+ /* unique constraint */
+ 
+create table if not exists test6 ( 
+test_id int NOT NULL default 0 ,
+test_name varchar(30),
+test_mailid varchar(30) unique,
+test_address varchar(30),
+test_salary int check(test_salary > 10000)) 
+
+insert into test6 (test_name, test_mailid, test_address, test_salary) values('hassan', 'hassan@gmail.com', 'karachi', 18000)
+
+select * from test6;
