@@ -75,6 +75,9 @@ test_mailid varchar(30),
 test_address varchar(30),
 test_salary int check(test_salary > 10000)) 
 
+alter table test3 add check (test_id > 0)
+insert into test3 values(100, 'hassan', 'hassan@gmail.com', 'karachi', 18000)
+
 insert into test3 values(1, 'hassan', 'hassan@gmail.com', 'karachi', 18000),
                        (2, 'juniad', 'junaid@yahoo.com', 'hyderabad', 50000),
                        (3, 'asif', 'asif@gmail.com', 'jamshoro', 16000),
