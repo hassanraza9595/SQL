@@ -50,3 +50,8 @@ select str_to_date(order_date, '%m/%d/%y') from sales1;
 
 alter table sales1 
 add column order_date_new date after order_date
+
+Update sales1
+Set order_date_new = str_to_date(order_date, '%m/%d/%Y');
+
+select * from sales1
