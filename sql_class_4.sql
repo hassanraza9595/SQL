@@ -41,3 +41,12 @@ lines terminated by '\n'
 ignore 1 rows
 
 select * from sales1;
+
+/* convert sring into date */
+
+select str_to_date(order_date, '%m/%d/%y') from sales1;
+
+/* create new column order date after order_date column */
+
+alter table sales1 
+add column order_date_new date after order_date
