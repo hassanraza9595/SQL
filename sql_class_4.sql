@@ -54,4 +54,33 @@ add column order_date_new date after order_date
 Update sales1
 Set order_date_new = str_to_date(order_date, '%m/%d/%Y');
 
+/* create new column shipment_date_new and assign date data type */
+
+alter table sales1
+add column shipment_date_new date after ship_date
+
+/* now assign ship_date values to shipment_date_new */
+
+Update sales1
+Set shipment_date_new = str_to_date(ship_date, '%m/%d/%Y');
+
 select * from sales1
+
+/* show me records of sales that happened between 2011-01-01 and 2011-03-30 */
+
+select * from sales1 where shipment_date_new between '2011-01-01' and '2011-03-30';
+
+select now()  /* current date and time */
+
+select curdate() /* current date */
+
+select curtime() /* current time */
+
+select * from sales1 where shipment_date_new < date_sub(now(), interval 1 week)
+
+select year(now()) /* show current year */
+
+select dayname(now())  /* show current day */ 
+
+select dayname('2022-06-24 15:49:05') /* show day on this date */
+
