@@ -84,3 +84,34 @@ select dayname(now())  /* show current day */
 
 select dayname('2022-06-24 15:49:05') /* show day on this date */
 
+alter table sales1 
+add column flag date after order_id
+
+update sales1
+set flag = now()
+
+select * from sales1;
+
+
+alter table sales1
+modify column `year` datetime;
+
+select * from sales1;
+
+/* create three columns year, month, day */
+
+alter table sales1
+add column year_new int after `year`
+
+alter table sales1
+modify column month_new int
+
+alter table sales1
+modify column day_new int
+
+select * from sales1 limit 50
+
+update sales1 set year_new = year(order_date_new)
+update sales1 set month_new = month(order_date_new)
+update sales1 set day_new = day(order_date_new)
+
