@@ -109,9 +109,35 @@ modify column month_new int
 alter table sales1
 modify column day_new int
 
-select * from sales1 limit 50
+select * from sales1 limit 1
 
 update sales1 set year_new = year(order_date_new)
 update sales1 set month_new = month(order_date_new)
 update sales1 set day_new = day(order_date_new)
 
+/* show me average sales of 2011 */
+
+select year_new, sum(sales) from sales1 group by year_new
+select year_new, min(sales) from sales1 group by year_new
+select year_new, max(sales) from sales1 group by year_new
+
+select year_new, sum(quantity) from sales1 group by year_new
+select year_new, avg(quantity) from sales1 group by year_new
+select year_new, min(quantity) from sales1 group by year_new
+select year_new, max(quantity) from sales1 group by year_new
+
+select * from sales1;
+
+select year_new , (discount + shipping_cost) from sales1 group by year_new;
+
+select (sales* discount + shipping_cost)  from sales1
+
+select order_id, discount, if(discount > 0, 'yes', 'no') as discount_flag from sales1;
+
+alter table sales1 
+modify column discount_flag varchar(20) after discount
+
+Update sales1 
+set discount_flag = if(discount > 0, 'yes', 'no');
+
+select discount_flag, count(*) as discount_items from sales1 group by discount_flag;
